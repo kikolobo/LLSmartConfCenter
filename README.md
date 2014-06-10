@@ -20,10 +20,10 @@ This is a wrapper singleton class that NEEDS the following TI Framework in your 
 
 
 ##### NOTE: LLSmartConfCenter and CC3x configuring in general only works on your device. NOT the SIMULATOR!
-###### The code will run but will not do anything except print an error msg to the console and call the
+The code will run but will not do anything except print an error msg to the console and call the
  completion block immediately after the beginConfigForSSID... method is called.
 
-* How to use:
+How to use:
     1) You get a singleton using the [LLSmartConfCenter sharedCenter]; method.
     2) Call :
         [self.smartConfCenter beginConfigForSSID:ssid withPassword: andEncryptionKey:encKey completionBlock:^(LLSmartConfStatus status) {

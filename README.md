@@ -1,11 +1,9 @@
 ### This is a singleton class that will help in configuring Texas Instruments Smart Config Devices (Specifcally CC3x).
 
-This code was tested on *XCode 5.1.1*
+This code was tested on *XCode 5.1.1* with *iPhone* and *TI CC3000* using Spark WiFi MCU module.
 
 ##### NOTE: LLSmartConfCenter and CC3x configuring in general only works on your device. NOT the SIMULATOR!
 
-I use this class to configure a spark.io module to access WiFi networks from
-an iPhone.
 
 This is a wrapper singleton class that NEEDS the following TI Framework in your X-Code project:
  - libFTC_DEBUG.a

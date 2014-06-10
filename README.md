@@ -25,21 +25,20 @@ The code will run but will not do anything except print an error msg to the cons
  completion block immediately after the beginConfigForSSID... method is called.
 
 How to use:
--You get a singleton using the [LLSmartConfCenter sharedCenter]; method.
--Call :
+- You get a singleton using the [LLSmartConfCenter sharedCenter]; method.
+- Call :
 ```objective-c
 [self.smartConfCenter beginConfigForSSID:ssid withPassword: andEncryptionKey:encKey completionBlock:^(LLSmartConfStatus status) {
             NSLog(@"---->SMART CONFIG STOPPED<---");
         }];
 ```
--The completion block will be called when process is complete or manually canceled.
--To manually cancel, call the -(void)stop method in the singleton.
+- The completion block will be called when process is complete or manually canceled.
+- To manually cancel, call the -(void)stop method in the singleton.
 
 *NOTE:* Spark.io devices use: "sparkdevices2013" as encryption password. This may change in the future. If you can't seem to configure your device, check the Spark.io website.
 
 -----------------
- Sample Use in a UIViewController with a button:
------------------
+ Sample Use in a UIViewController with a UIButton wired to configureWifiPress action method :
 
 ```objective-c
 //(Conform the UIViewController to the UIAlertActionView protocol),

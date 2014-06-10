@@ -2,6 +2,8 @@
 
 This code was tested on *XCode 5.1.1*
 
+##### NOTE: LLSmartConfCenter and CC3x configuring in general only works on your device. NOT the SIMULATOR!
+
 I use this class to configure a spark.io module to access WiFi networks from
 an iPhone.
 
@@ -19,20 +21,21 @@ This is a wrapper singleton class that NEEDS the following TI Framework in your 
  your target. (ProjectName->Targets(Your Project)->General->Linked Frameworks)
 
 
-##### NOTE: LLSmartConfCenter and CC3x configuring in general only works on your device. NOT the SIMULATOR!
 The code will run but will not do anything except print an error msg to the console and call the
  completion block immediately after the beginConfigForSSID... method is called.
 
 How to use:
-    1) You get a singleton using the [LLSmartConfCenter sharedCenter]; method.
-    2) Call :
-        [self.smartConfCenter beginConfigForSSID:ssid withPassword: andEncryptionKey:encKey completionBlock:^(LLSmartConfStatus status) {
+-You get a singleton using the [LLSmartConfCenter sharedCenter]; method.
+-Call :
+```objective-c
+[self.smartConfCenter beginConfigForSSID:ssid withPassword: andEncryptionKey:encKey completionBlock:^(LLSmartConfStatus status) {
             NSLog(@"---->SMART CONFIG STOPPED<---");
         }];
-    3) The completion block will be called when process is complete or manually canceled.
-    4) To manually cancel, call the -(void)stop method in the singleton.
+```
+-The completion block will be called when process is complete or manually canceled.
+-To manually cancel, call the -(void)stop method in the singleton.
 
-#####NOTE: Spark.io devices use: "sparkdevices2013" as encryption password. This may change in the future. If you can't seem to configure your device, check the Spark.io website.
+*NOTE:* Spark.io devices use: "sparkdevices2013" as encryption password. This may change in the future. If you can't seem to configure your device, check the Spark.io website.
 
 -----------------
  Sample Use in a UIViewController with a button:

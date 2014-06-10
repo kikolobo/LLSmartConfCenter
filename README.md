@@ -1,16 +1,16 @@
-** This is a singleton class that will help in configuring
-** Texas Instruments Smart Config Devices (Specifcally CC3x).
+### This is a singleton class that will help in configuring Texas Instruments Smart Config Devices (Specifcally CC3x).
 
-This code was tested on XCode 5.1.1
+This code was tested on *XCode 5.1.1*
 
 I use this class to configure a spark.io module to access WiFi networks from
 an iPhone.
 
 This is a wrapper singleton class that NEEDS the following TI Framework in your X-Code project:
- - libFTC_DEBUG.a  | libFTC_RELEASE.a
+ - libFTC_DEBUG.a
+ - libFTC_RELEASE.a
 
  Download the framework files, along with TI combersome samples from :
- http://www.ti.com/tool/smartconfig
+ [http://www.ti.com/tool/smartconfig](http://www.ti.com/tool/smartconfig)
 
  Once in your computer, add the LLSmartConfCenter.h/m you got from this repo to your project.
 
@@ -19,8 +19,8 @@ This is a wrapper singleton class that NEEDS the following TI Framework in your 
  your target. (ProjectName->Targets(Your Project)->General->Linked Frameworks)
 
 
-#### NOTE: LLSmartConfCenter and CC3x configuring in general only works on your device. NOT the SIMULATOR!
-##### The code will run but will not do anything except print an error msg to the console and call the
+##### NOTE: LLSmartConfCenter and CC3x configuring in general only works on your device. NOT the SIMULATOR!
+###### The code will run but will not do anything except print an error msg to the console and call the
  completion block immediately after the beginConfigForSSID... method is called.
 
 * How to use:
@@ -32,12 +32,13 @@ This is a wrapper singleton class that NEEDS the following TI Framework in your 
     3) The completion block will be called when process is complete or manually canceled.
     4) To manually cancel, call the -(void)stop method in the singleton.
 
-####NOTE: Spark.io devices use: "sparkdevices2013" as encryption password. This may change in the future. If you can't seem to configure your device, check the Spark.io website.
+#####NOTE: Spark.io devices use: "sparkdevices2013" as encryption password. This may change in the future. If you can't seem to configure your device, check the Spark.io website.
 
-####-----------------
-#### Sample Use in a UIViewController with a button:
-#### -----------------
+-----------------
+ Sample Use in a UIViewController with a button:
+-----------------
 
+```objective-c
 //(Conform the UIViewController to the UIAlertActionView protocol),
 
 @property (strong, nonatomic) LLSmartConfCenter smartConfCenter;
@@ -99,7 +100,8 @@ This is a wrapper singleton class that NEEDS the following TI Framework in your 
         NSLog(@"---->SMART CONFIG STOPPED<---");
     }];
 }
------------------
+```
 
-* Any suggestions welcomed. I wish I could do more with the callback, but TI (to my knowledge) does not provide a 'success' - 'fail' callback. Only a completed callback that is called regardless of what stopped the process.
+
+###### Any suggestions welcomed. I wish I could do more with the callback, but TI (to my knowledge) does not provide a 'success' - 'fail' callback. Only a completed callback that is called regardless of what stopped the process.
 
